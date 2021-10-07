@@ -18,7 +18,7 @@ public class PhoneController {
         this.phoneService = phoneService;
     }
 
-    @PostMapping
+    @PostMapping("create/{id}")
     public ResponseEntity<Phone> create(@RequestBody Phone phone){
         return new ResponseEntity<Phone>(phoneService.save(phone), HttpStatus.CREATED);
     }
@@ -28,17 +28,17 @@ public class PhoneController {
         return phoneService.getAll();
     }
 
-    @GetMapping("{id}")
+    @GetMapping("get/{id}")
     public ResponseEntity<Phone> get(@PathVariable("id") long id){
         return new ResponseEntity<Phone>(phoneService.get(id), HttpStatus.OK);
     }
 
-    @PutMapping("{id}")
+    @PutMapping("update/{id}")
     public ResponseEntity<Phone> update(@PathVariable ("id") long id, @RequestBody Phone phone) {
         return new ResponseEntity<Phone>(phoneService.update(id, phone), HttpStatus.OK);
     }
 
-    @DeleteMapping("{id}")
+    @DeleteMapping("delete/{id}")
     public ResponseEntity<String> delete(@PathVariable ("id") long id) {
         return new ResponseEntity<String>("Phone has deleted", HttpStatus.OK);
     }
