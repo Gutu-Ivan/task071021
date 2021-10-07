@@ -39,8 +39,8 @@ public class PhoneController {
     }
 
     @DeleteMapping("{id}")
-    public ResponseEntity<Phone> delete(@PathVariable ("id") long id) {
-        return new ResponseEntity<Phone>(phoneService.delete(id), HttpStatus.OK);
+    public ResponseEntity<String> delete(@PathVariable ("id") long id) {
+        return new ResponseEntity<String>("Phone has deleted", HttpStatus.OK);
     }
 
 
